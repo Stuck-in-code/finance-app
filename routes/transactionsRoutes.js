@@ -10,8 +10,8 @@ import rateLimiter from "../middleware/rateLimiter.js";
 const transactionRouter = express.Router();
 
 transactionRouter.post("/create", createTransaction);
+transactionRouter.get("/summary/:userId", getTransactionSummary);
 transactionRouter.get("/:userId", rateLimiter, getTranasactionByUser);
 transactionRouter.delete("/:id", deletTransactionById);
-transactionRouter.get("/summary/:userId", getTransactionSummary);
 
 export default transactionRouter;
